@@ -12,27 +12,9 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { BrowserRouter as Router, Link as LinkRouter } from 'react-router-dom'; 
+import { Link as RouterLink } from 'react-router-dom'; 
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
-const defaultTheme = createTheme();
-
-export default function SignInSide() {
-
+function SignInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -41,11 +23,9 @@ export default function SignInSide() {
       password: data.get('password'),
     });
   };
-  const handleLogin = () => {
-    window.location = '/home'
-  }
+
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={createTheme()}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
@@ -104,13 +84,13 @@ export default function SignInSide() {
                 label="Remember me"
               />
               <Button
-              
                 fullWidth 
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-
+                component={RouterLink}
+                to="/dashboard"
               >
-                <LinkRouter to="dashboard"> Sign In </LinkRouter>
+                Sign In
               </Button>
               
               <Grid container>
@@ -125,7 +105,6 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
               </Grid>
-              <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
         </Grid>
@@ -133,3 +112,5 @@ export default function SignInSide() {
     </ThemeProvider>
   );
 }
+
+export default SignInSide;
