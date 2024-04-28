@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { BrowserRouter as Router, Link as LinkRouter } from 'react-router-dom'; 
 
 function Copyright(props) {
   return (
@@ -31,6 +32,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -39,7 +41,9 @@ export default function SignInSide() {
       password: data.get('password'),
     });
   };
-
+  const handleLogin = () => {
+    window.location = '/home'
+  }
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -100,13 +104,15 @@ export default function SignInSide() {
                 label="Remember me"
               />
               <Button
-                type="submit"
-                fullWidth
+              
+                fullWidth 
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+
               >
-                Sign In
+                <LinkRouter to="dashboard"> Sign In </LinkRouter>
               </Button>
+              
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
