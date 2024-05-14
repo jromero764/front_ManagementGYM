@@ -3,15 +3,15 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-
+import SwipeableTextMobileStepper from './carrouselMUI'
 
 
 export default function Carrousel() {
     return (
-        <Box sx={{ flexGrow: 1, border: 2, height:700 }}>
-            <Grid container spacing={2}>
-                <Grid item xs={8}>
-                    
+        <Box sx={{ flexGrow: 1, height: 100 }}>
+            <Grid container sx={{ display: 'flex', justifyContent: 'center',paddingX:'10rem' }}>
+                <Grid item>
+                    <SwipeableTextMobileStepper />
                 </Grid>
             </Grid>
         </Box>

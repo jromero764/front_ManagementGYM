@@ -1,0 +1,15 @@
+button.buttonErebil {
+    /* background-color: #ff0000; */
+    color: red
+}
+
+button.buttonErebil:hover {
+    background-color: #ff0000;
+    color: white
+}
+
+.menu-item.backgroundHover:hover {
+    background: #ff0000;
+    color: white;
+    border-radius: 5px;
+}

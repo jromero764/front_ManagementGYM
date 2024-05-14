@@ -15,7 +15,6 @@ export default function Header() {
     <Box
       sx={{
         flexGrow: 1,
-        border: 2,
         height: '275px',
         display: 'flex',
         flexDirection: 'column',
